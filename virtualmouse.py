@@ -29,9 +29,9 @@ interface = device.Activate(IAudioEndpointVolume._iid_, 0, None)
 volume = interface.QueryInterface(IAudioEndpointVolume)
 
 # Create the screenshot folder if it doesn't exist
-screenshot_folder = "screenshot"
-if not os.path.exists(screenshot_folder):
-    os.makedirs(screenshot_folder)
+# screenshot_folder = "screenshot"
+# if not os.path.exists(screenshot_folder):
+#     os.makedirs(screenshot_folder)
 
 def change_volume(direction):
     """
@@ -235,10 +235,10 @@ def process_frame():
             if not gesture_detected:
                 cv2.putText(frame, "Gesture Not Detected", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
-            ret, jpeg = cv2.imencode('.jpg', frame)
-            frame_bytes = jpeg.tobytes()
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n\r\n')
+            # ret, jpeg = cv2.imencode('.jpg', frame)
+            # frame_bytes = jpeg.tobytes()
+            # yield (b'--frame\r\n'
+            #        b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n\r\n')
 
     finally:
         cap.release()
